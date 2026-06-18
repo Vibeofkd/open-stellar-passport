@@ -20,11 +20,14 @@ export const CONTRACTS = {
   verifier: "CCMKLYSRUH2HMA4UU6WLXWQXEY6KAH5AWB5BEVMJGNGC5GLGTVROLG4A",
 };
 
+// Prefix with Vite's base URL so assets resolve under a sub-path deploy
+// (e.g. GitHub Pages at /open-stellar-passport/).
+const BASE = import.meta.env.BASE_URL;
 const ART = {
-  circuit: "/zk/agent_passport.wasm",
-  zkey: "/zk/agent_passport_final.zkey",
-  witness: "/zk/passport_witness.wasm",
-  vk: "/zk/verification_key.json",
+  circuit: `${BASE}zk/agent_passport.wasm`,
+  zkey: `${BASE}zk/agent_passport_final.zkey`,
+  witness: `${BASE}zk/passport_witness.wasm`,
+  vk: `${BASE}zk/verification_key.json`,
 };
 
 export interface SorobanProof {
@@ -216,8 +219,8 @@ export async function authorizePayment(
  */
 export async function replaySpentProof(): Promise<OnChainResult> {
   const [hex, pub] = await Promise.all([
-    fetch("/zk/spent_proof.json").then((r) => r.json()),
-    fetch("/zk/spent_public.json").then((r) => r.json()),
+    fetch(`${BASE}zk/spent_proof.json`).then((r) => r.json()),
+    fetch(`${BASE}zk/spent_public.json`).then((r) => r.json()),
   ]);
   const p: SorobanProof = {
     proof: { a: buf(hex.a), b: buf(hex.b), c: buf(hex.c) },
