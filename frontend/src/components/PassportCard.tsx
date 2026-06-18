@@ -63,7 +63,7 @@ export function PassportCard({ state, agentId, spendCap, nullifier, ledger }: Pr
       initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 120, damping: 18 }}
-      className="relative aspect-[1.585/1.06] w-full select-none overflow-hidden rounded-[1.4rem]"
+      className="relative aspect-[1.585/1.06] w-full select-none overflow-hidden rounded-[10px]"
       style={{
         background: "linear-gradient(155deg, #161616 0%, #0c0c0c 55%, #080808 100%)",
         boxShadow: "inset 0 1px 0 rgba(255,255,255,.08), 0 26px 60px -24px rgba(10,10,10,.55)",

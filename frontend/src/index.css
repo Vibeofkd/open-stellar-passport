@@ -2,36 +2,37 @@
 @import "tw-animate-css";
 
 /* ------------------------------------------------------------------ *
- *  shadcn/ui tokens — light, Stellar-branded (black + white + yellow)
+ *  Tokens — Stellar Design System (Radix scales, 4px radius, Inter +
+ *  Inconsolata). Black/white, lilac #6e56cf accent, gold #fdda24 brand.
  * ------------------------------------------------------------------ */
 :root {
-  --radius: 0.7rem;
+  --radius: 4px;
   --background: #ffffff;
-  --foreground: #0a0a0a;
+  --foreground: #171717;
   --card: #ffffff;
-  --card-foreground: #0a0a0a;
+  --card-foreground: #171717;
   --popover: #ffffff;
-  --popover-foreground: #0a0a0a;
-  --primary: #0a0a0a;
+  --popover-foreground: #171717;
+  --primary: #171717;
   --primary-foreground: #ffffff;
-  --secondary: #f4f4f1;
-  --secondary-foreground: #0a0a0a;
-  --muted: #f4f4f1;
-  --muted-foreground: #5a5a55;
-  --accent: #f6f6f3;
-  --accent-foreground: #0a0a0a;
-  --destructive: #dc2626;
+  --secondary: #f3f3f3;
+  --secondary-foreground: #171717;
+  --muted: #f8f8f8;
+  --muted-foreground: #6f6f6f;
+  --accent: #f5f2ff;
+  --accent-foreground: #171717;
+  --destructive: #e5484d;
   --destructive-foreground: #ffffff;
-  --border: #0000000f;
-  --input: #00000014;
-  --ring: #fdda24;
+  --border: #e2e2e2;
+  --input: #e2e2e2;
+  --ring: #6e56cf;
 }
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -53,42 +54,38 @@
   --color-ring: var(--ring);
 }
 
-/* ------------------------------------------------------------------ *
- *  Agent Passport — Stellar-brand tokens (light)
- *  Names are kept stable so existing utilities recolor in place.
- * ------------------------------------------------------------------ */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "Inconsolata", ui-monospace, monospace;
 
-  /* surfaces (now light) */
-  --color-ink-950: #f5f5f2;
+  /* SDS gray surfaces */
+  --color-ink-950: #f8f8f8;
   --color-ink-900: #ffffff;
-  --color-ink-850: #f5f5f2;
-  --color-ink-800: #eeeeea;
-  --color-ink-700: #e3e3dd;
-  --color-ink-600: #cfcfc8;
+  --color-ink-850: #f8f8f8;
+  --color-ink-800: #f3f3f3;
+  --color-ink-700: #ededed;
+  --color-ink-600: #dbdbdb;
 
   /* brand */
-  --color-ink: #0a0a0a; /* black — buttons, the credential card */
-  --color-stellar: #fdda24; /* Stellar yellow */
-  --color-stellar-deep: #8a6a00; /* readable gold for text on light */
+  --color-ink: #171717; /* near-black — buttons, the credential card */
+  --color-stellar: #fdda24; /* Stellar gold-09 */
+  --color-stellar-deep: #946800; /* gold-11, readable on light */
   --color-paper: #ffffff;
-  --color-line: #e7e7e2;
+  --color-line: #e2e2e2; /* gray-06 */
 
-  /* accent aliases (kept as violet/cyan names → now brand colours) */
-  --color-violet: #fdda24; /* fills / rings / active = yellow */
-  --color-violet-soft: #7a6000; /* accent text on light = deep gold */
-  --color-cyan: #8a6a00; /* data values = deep gold */
-  --color-verified: #16a34a;
-  --color-denied: #dc2626;
-  --color-amber: #d97706;
+  /* accents (names kept stable) */
+  --color-violet: #6e56cf; /* lilac-09 — primary accent */
+  --color-violet-soft: #5746af; /* lilac-11 — accent text/links */
+  --color-cyan: #946800; /* gold-11 — data values */
+  --color-verified: #30a46c; /* green-09 */
+  --color-denied: #e5484d; /* red-09 */
+  --color-amber: #ffb224; /* amber-09 */
 
-  --color-fg: #0a0a0a;
-  --color-muted: #5a5a55;
-  --color-faint: #9a9a92;
+  --color-fg: #171717; /* gray-12 */
+  --color-muted: #6f6f6f; /* gray-11 */
+  --color-faint: #8f8f8f; /* gray-09 */
 
-  --radius-card: 1.25rem;
+  --radius-card: 4px;
 }
 
 @layer base {
@@ -97,14 +94,10 @@
   }
   body {
     margin: 0;
-    background:
-      radial-gradient(920px 560px at 90% -14%, rgba(253, 218, 36, 0.22), transparent 60%),
-      radial-gradient(680px 480px at -6% 112%, rgba(253, 218, 36, 0.08), transparent 55%),
-      var(--color-paper);
+    background: var(--color-paper);
     color: var(--color-fg);
     font-family: var(--font-sans);
     font-feature-settings: "cv11", "ss01";
-    letter-spacing: -0.011em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     min-height: 100vh;
@@ -114,14 +107,14 @@
     z-index: 1;
   }
   ::selection {
-    background: rgba(253, 218, 36, 0.4);
+    background: rgba(110, 86, 207, 0.18);
   }
   *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
   }
   *::-webkit-scrollbar-thumb {
-    background: var(--color-ink-700);
+    background: var(--color-ink-600);
     border-radius: 99px;
   }
   *::-webkit-scrollbar-track {
@@ -130,13 +123,10 @@
 }
 
 @layer utilities {
-  /* light surface card */
+  /* flat Stellar card — hairline border, no soft shadow */
   .glass {
     background: var(--color-paper);
     border: 1px solid var(--color-line);
-    box-shadow:
-      0 1px 2px rgba(10, 10, 10, 0.04),
-      0 12px 32px -22px rgba(10, 10, 10, 0.22);
   }
   .grid-bg {
     background-image:
@@ -171,13 +161,13 @@
   }
   @keyframes pulse-ring {
     0% {
-      box-shadow: 0 0 0 0 rgba(253, 218, 36, 0.5);
+      box-shadow: 0 0 0 0 rgba(110, 86, 207, 0.4);
     }
     70% {
-      box-shadow: 0 0 0 12px rgba(253, 218, 36, 0);
+      box-shadow: 0 0 0 12px rgba(110, 86, 207, 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(253, 218, 36, 0);
+      box-shadow: 0 0 0 0 rgba(110, 86, 207, 0);
     }
   }
   .animate-pulse-ring {

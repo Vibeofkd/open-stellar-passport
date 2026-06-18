@@ -185,21 +185,21 @@ function Header() {
       <div className="mx-auto flex max-w-[1180px] items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
           <Wordmark />
-          <span className="ml-1 hidden items-center gap-1.5 rounded-full border border-black/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-muted sm:inline-flex">
+          <span className="ml-1 hidden items-center gap-1.5 rounded border border-line px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-muted sm:inline-flex">
             <span className="h-1 w-1 rounded-full bg-verified" /> testnet
           </span>
         </div>
-        <nav className="flex items-center gap-1 text-sm">
-          <a href="#demo" className="hidden rounded-lg px-3 py-1.5 text-muted transition-colors hover:bg-black/5 hover:text-fg md:inline-block">
+        <nav className="flex items-center gap-5 text-sm">
+          <a href="#demo" className="hidden font-medium text-fg/75 transition-colors hover:text-fg md:inline-block">
             Live demo
           </a>
-          <a href="#tech" className="hidden rounded-lg px-3 py-1.5 text-muted transition-colors hover:bg-black/5 hover:text-fg md:inline-block">
+          <a href="#tech" className="hidden font-medium text-fg/75 transition-colors hover:text-fg md:inline-block">
             Under the hood
           </a>
           <a
             href={REPO}
             target="_blank"
-            className="ml-1 inline-flex items-center gap-1.5 rounded-lg bg-ink px-3 py-1.5 text-sm font-medium text-white transition-transform hover:-translate-y-px"
+            className="inline-flex items-center gap-1.5 rounded bg-ink px-3.5 py-2 text-sm font-semibold text-white transition-transform hover:-translate-y-px"
           >
             <Github width={15} height={15} /> GitHub
           </a>
@@ -220,14 +220,13 @@ function Hero() {
         height={280}
         className="pointer-events-none absolute -right-28 -top-40 -z-10 text-black/[0.025]"
       />
-      <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/[0.02] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.15em] text-muted">
-        <span className="h-1.5 w-1.5 rounded-full bg-stellar" /> Stellar Hacks · Real-World ZK
+      <div className="inline-flex items-center gap-2 rounded border border-line bg-[#f8f8f8] px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
+        <span className="h-1.5 w-1.5 rounded-full bg-violet" /> Stellar Hacks · Real-World ZK
       </div>
-      <h1 className="mt-5 text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-fg sm:text-[3.1rem]">
+      <h1 className="mt-5 text-[3rem] font-extrabold leading-[1.02] tracking-[-0.038em] text-fg sm:text-[3.7rem]">
         Let AI agents pay
         <br />
-        without trusting them
-        <span className="text-stellar-deep">.</span>
+        without trusting them<span className="text-violet">.</span>
       </h1>
       <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-muted">
         A single zero-knowledge proof — verified on-chain in Soroban — attests an agent is backed by a verified human,
@@ -237,7 +236,7 @@ function Hero() {
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <a
           href="#demo"
-          className="inline-flex items-center gap-2 rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-10px_rgba(10,10,10,0.5)] transition-transform hover:-translate-y-px"
+          className="inline-flex items-center gap-2 rounded bg-ink px-4 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-10px_rgba(10,10,10,0.5)] transition-transform hover:-translate-y-px"
         >
           Try the live demo <ArrowRight width={16} height={16} />
         </a>
@@ -250,7 +249,7 @@ function Hero() {
         </a>
       </div>
 
-      <ul className="mt-8 grid max-w-xl gap-px overflow-hidden rounded-xl border border-black/[0.07] bg-black/[0.015] sm:grid-cols-1">
+      <ul className="mt-8 grid max-w-xl gap-px overflow-hidden rounded border border-black/[0.07] bg-black/[0.015] sm:grid-cols-1">
         <Claim icon={<Fingerprint width={17} height={17} />} title="Personhood, not PII">
           Merkle membership in an attested registry — no identity database to breach.
         </Claim>
@@ -277,7 +276,7 @@ function Hero() {
 function Claim({ icon, title, children }: { icon: ReactNode; title: string; children: ReactNode }) {
   return (
     <li className="flex items-start gap-3.5 px-4 py-3.5">
-      <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-violet/10 text-violet-soft ring-1 ring-violet/15">
+      <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded bg-violet/10 text-violet-soft ring-1 ring-violet/15">
         {icon}
       </span>
       <div className="text-sm">
@@ -312,7 +311,7 @@ function StepShell({
   return (
     <Card
       className={cx(
-        "!rounded-2xl !p-5 transition-all duration-300",
+        "!rounded !p-5 transition-all duration-300",
         locked && "opacity-45",
         active && "border-violet/25 bg-violet/[0.03]",
       )}
@@ -384,7 +383,7 @@ function StepMint({
       <AnimatePresence>
         {minted && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-4 overflow-hidden">
-            <div className="rounded-xl border border-black/[0.07] bg-ink-950/50 p-3.5">
+            <div className="rounded border border-black/[0.07] bg-ink-950/50 p-3.5">
               <div className="mb-2.5 flex items-center justify-between">
                 <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-cyan">
                   <Cpu width={13} height={13} /> Groth16 · {minted.provingMs} ms
@@ -444,7 +443,7 @@ function ProofDialog({ minted }: { minted: MintedProof }) {
               <Mono key={k} label={k} value={v} />
             ))}
           </Section>
-          <p className="rounded-lg border border-violet/15 bg-violet/[0.05] p-3 text-xs text-muted">
+          <p className="rounded border border-violet/15 bg-violet/[0.05] p-3 text-xs text-muted">
             These four values + the proof are all that's sent on-chain. The owner key, balance, Merkle path and agent
             secret stay on this device.
           </p>
@@ -456,7 +455,7 @@ function ProofDialog({ minted }: { minted: MintedProof }) {
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="rounded-xl border border-black/[0.07] bg-ink-950/50 p-3.5">
+    <div className="rounded border border-black/[0.07] bg-ink-950/50 p-3.5">
       <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.16em] text-faint">{title}</div>
       <div className="grid gap-1">{children}</div>
     </div>
@@ -507,7 +506,7 @@ function StepVerify({
         {verifyRes && (
           <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mt-4">
             {verifyRes.ok ? (
-              <div className="rounded-xl border border-verified/20 bg-verified/[0.05] p-3.5">
+              <div className="rounded border border-verified/20 bg-verified/[0.05] p-3.5">
                 <div className="flex items-center gap-2 text-sm font-semibold text-verified">
                   <Check width={16} height={16} /> Attestation minted on-chain
                 </div>
@@ -517,7 +516,7 @@ function StepVerify({
                 </div>
               </div>
             ) : (
-              <div className="flex items-center gap-2 rounded-xl border border-denied/20 bg-denied/[0.05] p-3.5 text-sm text-denied">
+              <div className="flex items-center gap-2 rounded border border-denied/20 bg-denied/[0.05] p-3.5 text-sm text-denied">
                 <X width={16} height={16} /> {verifyRes.error}
               </div>
             )}
@@ -567,7 +566,7 @@ function StepPay({
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             className={cx(
-              "mt-4 flex items-center gap-3 rounded-xl border p-3.5",
+              "mt-4 flex items-center gap-3 rounded border p-3.5",
               payRes.authorized ? "border-verified/25 bg-verified/[0.05]" : "border-denied/25 bg-denied/[0.05]",
             )}
           >
@@ -618,7 +617,7 @@ function StepReplay({ replaying, replay, onReplay }: { replaying: boolean; repla
 
 function Console({ lines }: { lines: string[] }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-black/[0.07] bg-ink-950/60">
+    <div className="overflow-hidden rounded border border-black/[0.07] bg-ink-950/60">
       <div className="flex items-center gap-2 border-b border-black/[0.07] px-4 py-2.5">
         <Cpu width={13} height={13} className="text-faint" />
         <span className="font-mono text-[11px] tracking-wide text-faint">proof console</span>
@@ -664,10 +663,10 @@ function Threats() {
   return (
     <section className="mt-24">
       <SectionLabel n="02">What it stops</SectionLabel>
-      <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-black/[0.07] bg-black/[0.05] sm:grid-cols-3">
+      <div className="mt-6 grid gap-px overflow-hidden rounded border border-black/[0.07] bg-black/[0.05] sm:grid-cols-3">
         {items.map((i) => (
           <div key={i.t} className="bg-paper p-6">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-ink text-stellar">{i.icon}</span>
+            <span className="grid h-9 w-9 place-items-center rounded bg-ink text-stellar">{i.icon}</span>
             <div className="mt-4 text-[15px] font-semibold tracking-tight">{i.t}</div>
             <p className="mt-1.5 text-sm leading-relaxed text-muted">{i.d}</p>
           </div>
@@ -688,9 +687,9 @@ function HowItWorks() {
       <SectionLabel n="03">How it works</SectionLabel>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         {steps.map((s, i) => (
-          <div key={s.k} className="relative rounded-2xl border border-black/[0.07] bg-paper p-6">
+          <div key={s.k} className="relative rounded border border-black/[0.07] bg-paper p-6">
             <div className="flex items-center justify-between">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-ink text-stellar">{s.icon}</span>
+              <span className="grid h-10 w-10 place-items-center rounded bg-ink text-stellar">{s.icon}</span>
               <span className="font-mono text-[11px] text-faint">0{i + 1}</span>
             </div>
             <div className="mt-4 text-[15px] font-semibold tracking-tight">{s.k}</div>
@@ -717,7 +716,7 @@ function TechSection() {
       </SectionLabel>
       <div className="mt-6 grid gap-4 lg:grid-cols-[1.1fr_1fr]">
         {/* circuit */}
-        <div className="rounded-2xl border border-black/[0.07] bg-paper p-6">
+        <div className="rounded border border-black/[0.07] bg-paper p-6">
           <div className="flex items-center gap-2 text-[15px] font-semibold tracking-tight">
             <Cpu width={17} height={17} className="text-stellar-deep" /> agent_passport.circom
           </div>
@@ -734,7 +733,7 @@ function TechSection() {
           </div>
         </div>
         {/* contracts */}
-        <div className="rounded-2xl border border-black/[0.07] bg-paper p-6">
+        <div className="rounded border border-black/[0.07] bg-paper p-6">
           <div className="text-[15px] font-semibold tracking-tight">Deployed on Stellar testnet</div>
           <div className="mt-4 space-y-3">
             <ContractRow name="AgentPassportValidator" sub="stateful policy · nullifier store" id={CONTRACTS.validator} />
@@ -760,7 +759,7 @@ function TechSection() {
 function IoBox({ tone, title, items }: { tone: "private" | "public"; title: string; items: string[] }) {
   const priv = tone === "private";
   return (
-    <div className={cx("rounded-xl border p-3.5", priv ? "border-black/[0.07] bg-black/[0.02]" : "border-stellar/40 bg-stellar/[0.08]")}>
+    <div className={cx("rounded border p-3.5", priv ? "border-black/[0.07] bg-black/[0.02]" : "border-stellar/40 bg-stellar/[0.08]")}>
       <div className="mb-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-faint">
         {priv ? <Lock width={12} height={12} /> : <ScanLine width={12} height={12} />}
         {title}
@@ -781,7 +780,7 @@ function ContractRow({ name, sub, id }: { name: string; sub: string; id: string 
     <a
       href={EXPLORER(id)}
       target="_blank"
-      className="group flex items-center justify-between rounded-xl border border-black/[0.07] bg-black/[0.015] p-3 transition-colors hover:border-black/15 hover:bg-black/[0.03]"
+      className="group flex items-center justify-between rounded border border-black/[0.07] bg-black/[0.015] p-3 transition-colors hover:border-black/15 hover:bg-black/[0.03]"
     >
       <div className="min-w-0">
         <div className="text-sm font-medium">{name}</div>
@@ -805,7 +804,7 @@ function Comparison() {
   return (
     <section className="mt-24">
       <SectionLabel n="05">Why it's different</SectionLabel>
-      <div className="mt-6 overflow-hidden rounded-2xl border border-black/[0.07]">
+      <div className="mt-6 overflow-hidden rounded border border-black/[0.07]">
         <div className="grid grid-cols-[1fr_auto_auto] items-center bg-black/[0.03] px-5 py-3 text-[13px] font-medium">
           <span className="text-muted">Capability</span>
           <span className="w-28 text-center text-muted">Existing*</span>

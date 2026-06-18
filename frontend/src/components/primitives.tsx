@@ -19,7 +19,7 @@ export function Button({
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant; loading?: boolean }) {
   const base =
-    "relative inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed select-none";
+    "relative inline-flex items-center justify-center gap-2 rounded px-4 py-2.5 text-sm font-semibold transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed select-none";
   const variants: Record<Variant, string> = {
     primary:
       "text-white bg-ink shadow-[0_8px_24px_-10px_rgba(10,10,10,0.5)] hover:-translate-y-px hover:shadow-[0_12px_28px_-10px_rgba(10,10,10,0.6)] active:translate-y-0",
@@ -57,7 +57,7 @@ export function Badge({ tone = "muted", children, className }: { tone?: Tone; ch
   return (
     <span
       className={cx(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset",
+        "inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-xs font-medium ring-1 ring-inset",
         toneCls[tone],
         className,
       )}
@@ -68,7 +68,7 @@ export function Badge({ tone = "muted", children, className }: { tone?: Tone; ch
 }
 
 export function Card({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cx("glass rounded-3xl p-6", className)}>{children}</div>;
+  return <div className={cx("glass rounded p-6", className)}>{children}</div>;
 }
 
 export function Dot({ tone }: { tone: Tone }) {
